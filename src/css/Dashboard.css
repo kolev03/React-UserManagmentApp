@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.main-dashboard {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.dashboard-title {
+  margin-top: 45px;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 2rem;
+}
+.dashboard-item {
+  background-color: rgb(255, 253, 253);
+  height: min-content;
+  width: min-content;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.2);
+  display: flex;
+}
+
+.welcome-item,
+.style-item {
+  display: block;
+  width: 42.5%;
+  height: 300px;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  background-color: rgb(19, 203, 216);
+  color: white;
+}
+
+.welcome-item h4 {
+  font-size: 1rem;
+  color: rgb(219, 219, 219);
+}
+
+.welcome-item h2 {
+  font-size: 2rem;
+  margin-top: 5px;
+}
+
+.welcome-item h5 {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.style-item {
+  display: flex;
+  background-image: url("../assets/workplace.jpg");
+  opacity: 90%;
+}
+
+.style-item h3 {
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  font-size: 2.5em;
+  flex-wrap: nowrap;
+  color: rgb(19, 203, 216);
+}
+
+#charts {
+  width: min-content;
+  height: 400px;
+}
+
+h2 {
+  white-space: nowrap;
+}

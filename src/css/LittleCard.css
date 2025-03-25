@@ -1,0 +1,38 @@
+.little-card {
+    height: 70px; 
+    width: 18%;
+    gap: 20%;
+}
+
+.left-side-item {
+  text-align: left;
+}
+
+.right-side-item {
+  margin: auto;
+}
+
+.little-card-icon {
+  font-size: 30px;
+  background-color: rgb(19, 203, 216);;
+  padding: 10px;
+  border-radius: 10%;
+  color: white;
+}
+
+.little-card-title {
+  color: gray;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  white-space: nowrap;
+}
+
+.little-card-number {
+  font-size: 25px;
+}
+
+.little-card-percentage {
+  color: rgb(3, 125, 3);
+  font-size: 20px;
+}

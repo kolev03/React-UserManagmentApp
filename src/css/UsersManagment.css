@@ -1,0 +1,10 @@
+ul{
+    text-align: center;
+}
+
+li {
+  list-style: none;
+  font-size: 25px;
+  width: 50%;
+  margin: 10px auto;
+}
