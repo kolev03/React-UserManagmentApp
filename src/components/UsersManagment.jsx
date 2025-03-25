@@ -21,9 +21,7 @@ function UsersManagment() {
 
   return (
     <>
-      <h2 style={{ textAlign: "center", margin: "auto" }}>
-        Done! Can add + search with name, city updating activity
-      </h2>
+    <h2 className="user-managment-title">Users</h2>
       <label htmlFor="select-filter">Filter: </label>
       <select id="select-filter" value={selectedOption} onChange={handleChange}>
         <option value="all">All</option>
@@ -32,7 +30,7 @@ function UsersManagment() {
       </select>
       <ul>
         {filteredAccounts.map((account) => (
-          <li key={account.id}>
+          <li class="users-list"key={account.id}>
             <UserAccordion user={account} />
           </li>
         ))}

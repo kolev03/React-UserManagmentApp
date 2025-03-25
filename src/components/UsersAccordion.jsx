@@ -36,17 +36,23 @@ function UserAccordion({ user }) {
   }
 
   return (
-    <Accordion>
+    <Accordion class="user-accordion">
       <AccordionSummary
+        className="accordion-header"
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel-content"
         id="panel-header"
       >
-        <strong>{firstName} </strong> - {user.accountType} - Last seen:{" "}
-        {new Date(user.lastTimeSeen).toLocaleString()}
+        <strong className="accordion-name">{firstName}</strong>
+        <span className="accordion-user-type">{user.accountType}</span>
+        <span className="accordion-user-active">
+          Last seen:{" "}
+          {new Date(user.lastTimeSeen).toLocaleString().replace(/[,г]/g, "")}
+        </span>
       </AccordionSummary>
+
       <AccordionDetails>
-        <div>
+        <div className="accordion-user-details">
           <div className="user-data-accordion">
             <p>Full Name: </p>
             <input
@@ -98,10 +104,12 @@ function UserAccordion({ user }) {
               <option value="admin">Admin</option>
             </select>
           </div>
-          <button onClick={toggleInput}>
-            {isReadOnly ? "Edit Mode: OFF" : "Edit Mode ON"}
-          </button>
-          <button onClick={saveChanges}>Save changes</button>
+          <div className="accordion-user-buttons">
+            <button onClick={toggleInput}>
+              {isReadOnly ? "Edit Mode: OFF" : "Edit Mode ON"}
+            </button>
+            <button onClick={saveChanges}>Save changes</button>
+          </div>
         </div>
       </AccordionDetails>
     </Accordion>
