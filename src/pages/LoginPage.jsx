@@ -50,13 +50,6 @@ function LoginPage() {
         {/* type="submit" */}
         <button onClick={checkLogin}>Login</button>
       </form>
-      {/* <h4>Password must follow the standard format</h4>
-      <ul>
-        <li>Minimum 12 characters</li>
-        <li>At least 1 special character</li>
-        <li>At least 1 uppercase letter</li>
-        <li>At least 1 number</li>
-      </ul> */}
     </>
   );
 }

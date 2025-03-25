@@ -38,6 +38,19 @@
   color: white;
   font-weight: 700;
 }
+
+.acc-settings-container h5 {
+  font-size: 1rem;
+}
+
+.acc-settings-container ul {
+  margin-bottom: 20px;
+}
+.acc-settings-container li {
+  font-size: 1rem;
+  text-align: left;
+  margin: 5px 0px;
+}
 .acc-settings-container div {
   margin: 20px 0;
 }

@@ -25,6 +25,14 @@ function AccountSettings() {
   }, [admin]);
 
   const handleSaveChanges = () => {
+    if (
+      !/^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/.test(accInfo.password) ||
+      accInfo.name === "" ||
+      accInfo.email === ""
+    ) {
+      alert("Incorrect data! Match the requierments!");
+      return;
+    }
     alert("Changes saved!");
     dispatch(updateAccount({ ...admin, ...accInfo }));
   };
@@ -53,6 +61,7 @@ function AccountSettings() {
             onChange={(e) =>
               setAccInfo((prev) => ({ ...prev, email: e.target.value }))
             }
+            required
           />
         </div>
         <div>
@@ -64,8 +73,16 @@ function AccountSettings() {
             onChange={(e) =>
               setAccInfo((prev) => ({ ...prev, password: e.target.value }))
             }
+            minlength="12"
           />
         </div>
+        <h5>Note* Password must follow the standard format:</h5>
+        <ul>
+          <li>Minimum 12 characters</li>
+          <li>At least 1 special character</li>
+          <li>At least 1 uppercase letter</li>
+          <li>At least 1 number</li>
+        </ul>
         <button onClick={handleSaveChanges}>Save changes!</button>
       </div>
     </div>
