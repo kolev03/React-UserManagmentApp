@@ -48,6 +48,7 @@
   color: grey;
   font-size: 1.25rem;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .nav-bar-icon {
@@ -60,4 +61,19 @@ main {
   width: 87%;
   background-color: rgb(255, 255, 255);
   overflow-y: hidden;
+  transition: 0.3s ease;
 }
+
+#main-page-button-active{
+  background-color: var(--main-blue);
+  transition: 0.3s ease;
+  color: white;
+  padding: 8px;
+  border-radius: 5px 10px 5px 10px;
+}
+
+#main-page-button-active .nav-bar-icon{
+  color: white;
+  transition: 0.3s ease;
+}
+

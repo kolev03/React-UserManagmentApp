@@ -15,30 +15,51 @@ import {
 function MainPage() {
   const navigate = useNavigate();
   const [section, setSection] = useState(<Dashboard />);
+  const [activeButton, setActiveButton] = useState(null);
+  const active = "main-page-button-active";
+
+  const handleChange = (num) => setActiveButton(num);
 
   const handleLogOut = () => {
     navigate("/");
-    alert("Log out Succesful!");
+    alert("Log out Successful!");
+  };
+
+  const handleButtonClick = (num, component) => {
+    handleChange(num);
+    setSection(component);
   };
 
   return (
     <div className="flex">
       <div className="nav-bar-main-page">
-        <h3 class="nav-bar-title">UserManagmentApp</h3>
+        <h3 className="nav-bar-title">UserManagmentApp</h3>
         <hr />
-        <button onClick={() => setSection(<Dashboard />)}>
+        <button
+          id={activeButton === 1 ? active : "Button-1"}
+          onClick={() => handleButtonClick(1, <Dashboard />)}
+        >
           <FontAwesomeIcon className="nav-bar-icon" icon={faHouse} />
           Dashboard
         </button>
-        <button onClick={() => setSection(<UsersManagment />)}>
+        <button
+          id={activeButton === 2 ? active : "Button-2"}
+          onClick={() => handleButtonClick(2, <UsersManagment />)}
+        >
           <FontAwesomeIcon className="nav-bar-icon" icon={faUsers} />
           Users
         </button>
-        <button onClick={() => setSection(<AccountSettings />)}>
+        <button
+          id={activeButton === 3 ? active : "Button-3"}
+          onClick={() => handleButtonClick(3, <AccountSettings />)}
+        >
           <FontAwesomeIcon className="nav-bar-icon" icon={faGear} />
           Account Settings
         </button>
-        <button onClick={handleLogOut}>
+        <button
+          id={activeButton === 4 ? active : "Button-4"}
+          onClick={handleLogOut}
+        >
           <FontAwesomeIcon className="nav-bar-icon" icon={faRightToBracket} />
           Log off
         </button>

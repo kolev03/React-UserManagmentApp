@@ -46,7 +46,7 @@ function Dashboard() {
         <div className="dashboard-item welcome-item">
           {/* {admin.name} */}
           <h4>Built by, Petar Kolev</h4>
-          <h2>Welcome back, Petar Kolev</h2>
+          <h2>Welcome back, </h2>
           <h5>
             From colors, cards, typography to complex elements, you will find
             the full documentation. Here you can manage everything about your
@@ -58,10 +58,10 @@ function Dashboard() {
           <h3>UserManagmentApp</h3>
         </div>
         <div className="dashboard-item">
-            <SalesMonthly />
+          <SalesMonthly />
         </div>
         <div className="dashboard-item">
-            <SalesProduct />
+          <SalesProduct />
         </div>
       </main>
     </>
