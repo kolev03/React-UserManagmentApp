@@ -3,6 +3,7 @@ import SalesMonthly from "./SalesMonthly";
 import SalesProduct from "./ProductTypeSales.jsx";
 import LittleCard from "./LittleCard";
 import { useSelector } from "react-redux";
+import businessData from "../data/businessData.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChartBar,
@@ -13,33 +14,35 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
+  const records = businessData.records;
   const admins = useSelector((state) => state.admins);
   const admin = admins.find((admin) => admin.logged == true);
+  console.log(records.todaymoney);
   return (
     <>
       <h1 class="dashboard-title">Dashboard</h1>
       <main className="main-dashboard">
         <LittleCard
-          title="Today's Moneys"
-          number={"$53,000"}
+          title={"Today's Moneys"}
+          number={businessData.records.map((record) => record.todaymoney)}
           percentage="55%"
           icon={faMoneyBillTrendUp}
         />
         <LittleCard
           title="Today's Users"
-          number={"2,300"}
+          number={businessData.records.map((record) => record.todayuser)}
           percentage="5%"
           icon={faUsersBetweenLines}
         />
         <LittleCard
           title="New Clients"
-          number={"+3,020"}
+          number={businessData.records.map((data) => data.newclient)}
           percentage="14%"
           icon={faUserPlus}
         />
         <LittleCard
           title="Total Sales"
-          number={"$173,000"}
+          number={businessData.records.map((data) => data.totalsale)}
           percentage="8%"
           icon={faChartSimple}
         />

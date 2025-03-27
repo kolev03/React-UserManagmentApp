@@ -15,7 +15,8 @@ import {
 function MainPage() {
   const navigate = useNavigate();
   const [section, setSection] = useState(<Dashboard />);
-  const [activeButton, setActiveButton] = useState(null);
+  const [fade, setFade] = useState(true);
+  const [activeButton, setActiveButton] = useState(1);
   const active = "main-page-button-active";
 
   const handleChange = (num) => setActiveButton(num);
@@ -27,7 +28,11 @@ function MainPage() {
 
   const handleButtonClick = (num, component) => {
     handleChange(num);
-    setSection(component);
+    setFade(false);
+    setTimeout(() => {
+      setFade(true);
+      setSection(component);
+    }, 150);
   };
 
   return (
@@ -36,8 +41,8 @@ function MainPage() {
         <h3 className="nav-bar-title">UserManagmentApp</h3>
         <hr />
         <button
-          id={activeButton === 1 ? active : "Button-1"}
           onClick={() => handleButtonClick(1, <Dashboard />)}
+          id={activeButton === 1 ? active : "Button-1"}
         >
           <FontAwesomeIcon className="nav-bar-icon" icon={faHouse} />
           Dashboard
@@ -56,16 +61,13 @@ function MainPage() {
           <FontAwesomeIcon className="nav-bar-icon" icon={faGear} />
           Account Settings
         </button>
-        <button
-          id={activeButton === 4 ? active : "Button-4"}
-          onClick={handleLogOut}
-        >
+        <button onClick={handleLogOut}>
           <FontAwesomeIcon className="nav-bar-icon" icon={faRightToBracket} />
           Log off
         </button>
       </div>
       <main>
-        <section>{section}</section>
+        <section className={fade ? "fade-in" : "fade-out"}>{section}</section>
       </main>
     </div>
   );

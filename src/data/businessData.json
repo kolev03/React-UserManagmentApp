@@ -1,0 +1,11 @@
+{
+  "table_name": "businessdata",
+  "records": [
+    {
+      "todaymoney": "84123$",
+      "todayuser": "921",
+      "newclient": "25",
+      "totalsale": "172253$"
+    }
+  ]
+}
