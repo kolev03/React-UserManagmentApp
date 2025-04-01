@@ -26,7 +26,6 @@ function LoginPage() {
     alert("Login Succesful!")
     navigate("/main");
   };
-  // if (/^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/.test(pass) &&)
 
   const handlePassInput = (event) => passInput(event.target.value);
   const handleEmailInput = (event) => emailInput(event.target.value);
@@ -47,7 +46,6 @@ function LoginPage() {
           onChange={handlePassInput}
         />
         <hr />
-        {/* type="submit" */}
         <button onClick={checkLogin}>Login</button>
       </form>
     </>

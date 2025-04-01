@@ -13,7 +13,6 @@ function LittleCard({ title, number, percentage, icon }) {
         <div className="right-side-item">
           <FontAwesomeIcon
             className="little-card-icon"
-            // icon={faMoneyBillTrendUp}
             icon={icon}
           />
         </div>

@@ -25,7 +25,7 @@ const admins = createSlice({
       const { id, logged } = action.payload;
       const admin = state.find((admin) => admin.id === id);
       if (admin) {
-        admin.logged = logged; // With Immer, this is safe
+        admin.logged = logged; 
       }
     },
     updateAccount: (state, action) => {

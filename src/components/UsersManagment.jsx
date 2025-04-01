@@ -5,7 +5,6 @@ import UserAccordion from "./UsersAccordion";
 
 function UsersManagment() {
   const accounts = useSelector((state) => state.users);
-  const usersName = accounts.map((account) => account.name);
 
   const [selectedOption, setSelectedOption] = useState("all");
   const [inputValue, setInputValue] = useState("");
@@ -13,11 +12,11 @@ function UsersManagment() {
   const filteredAccounts =
     selectedOption === "all"
       ? accounts.filter((account) => account.name.includes(inputValue))
-      : accounts
-          .filter(
-            (account) => account.accountType.toLowerCase() === selectedOption
-          )
-          .filter((account) => account.name.includes(inputValue));
+      : accounts.filter(
+          (account) =>
+            account.accountType.toLowerCase() === selectedOption &&
+            account.name.toLowerCase().includes(inputValue)
+        );
 
   const handleTypeChange = (event) => {
     setSelectedOption(event.target.value);

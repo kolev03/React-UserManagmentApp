@@ -15,6 +15,7 @@
   background-color: rgb(255, 253, 253);
   height: min-content;
   width: min-content;
+  min-width: 200px;
   padding: 20px;
   margin: 20px;
   border-radius: 4%;
@@ -26,6 +27,7 @@
 .style-item {
   display: block;
   width: 42.5%;
+  min-width: 400px;
   height: 300px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;

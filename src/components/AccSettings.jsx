@@ -24,6 +24,11 @@ function AccountSettings() {
     }
   }, [admin]);
 
+  
+  /** 
+   * Does is 
+  */
+    
   const handleSaveChanges = () => {
     if (
       !/^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/.test(accInfo.password) ||
@@ -61,7 +66,6 @@ function AccountSettings() {
             onChange={(e) =>
               setAccInfo((prev) => ({ ...prev, email: e.target.value }))
             }
-            required
           />
         </div>
         <div>

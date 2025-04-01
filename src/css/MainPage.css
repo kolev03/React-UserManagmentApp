@@ -84,3 +84,15 @@ main {
   opacity: 0;
   transition: 0.3s ease;
 }
+
+
+@media only screen and (max-width: 514px) {
+  .flex{
+    flex-direction: column;
+  }
+
+  .nav-bar-main-page {
+    width: 100%
+    flex-direction: column;
+  }
+}

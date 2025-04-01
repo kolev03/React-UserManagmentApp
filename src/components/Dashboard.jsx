@@ -14,16 +14,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
-  const records = businessData.records;
   const admins = useSelector((state) => state.admins);
   const admin = admins.find((admin) => admin.logged == true);
-  console.log(records.todaymoney);
   return (
     <>
       <h1 class="dashboard-title">Dashboard</h1>
       <main className="main-dashboard">
         <LittleCard
-          title={"Today's Moneys"}
+          title="Today's Moneys"
           number={businessData.records.map((record) => record.todaymoney)}
           percentage="55%"
           icon={faMoneyBillTrendUp}

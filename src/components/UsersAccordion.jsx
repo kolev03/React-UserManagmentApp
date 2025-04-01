@@ -32,7 +32,6 @@ function UserAccordion({ user }) {
 
   function saveChanges() {
     dispatch(updateAccount(accData));
-    console.log(accData);
   }
 
   return (
