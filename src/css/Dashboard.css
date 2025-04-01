@@ -17,8 +17,8 @@
   width: min-content;
   min-width: 200px;
   padding: 20px;
-  margin: 20px;
-  border-radius: 4%;
+  margin: 20px auto;
+  border-radius: 30px 10px;
   box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.2);
   display: flex;
 }
@@ -27,7 +27,6 @@
 .style-item {
   display: block;
   width: 42.5%;
-  min-width: 400px;
   height: 300px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
@@ -35,7 +34,7 @@
   color: white;
 }
 
-.welcome-item h4 {
+.welcome-item h1 {
   font-size: 1rem;
   color: rgb(219, 219, 219);
 }
@@ -43,9 +42,10 @@
 .welcome-item h2 {
   font-size: 2rem;
   margin-top: 5px;
+  white-space: nowrap;
 }
 
-.welcome-item h5 {
+.welcome-item h3 {
   margin-top: 20px;
   font-size: 1rem;
 }
@@ -56,7 +56,7 @@
   opacity: 90%;
 }
 
-.style-item h3 {
+.style-item h1 {
   text-align: center;
   margin: auto;
   align-items: center;
@@ -70,6 +70,32 @@
   height: 400px;
 }
 
-h2 {
-  white-space: nowrap;
+@media only screen and (max-width: 1204px) {
+  .main-dashboard {
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .style-item {
+    display: none;
+  }
+  .welcome-item {
+    width: 100%;
+    text-align: center;
+    min-width: none;
+    height: min-content;
+  }
+
+  .welcome-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .dashboard-item{
+    margin: 20px;
+  }
 }

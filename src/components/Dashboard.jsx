@@ -3,6 +3,7 @@ import SalesMonthly from "./SalesMonthly";
 import SalesProduct from "./ProductTypeSales.jsx";
 import LittleCard from "./LittleCard";
 import { useSelector } from "react-redux";
+import { selectLoggedAdmin} from "../data/slices/admins.Slice.js"
 import businessData from "../data/businessData.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,8 +15,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
-  const admins = useSelector((state) => state.admins);
-  const admin = admins.find((admin) => admin.logged == true);
+  
+  const admin = useSelector(selectLoggedAdmin);
+
   return (
     <>
       <h1 class="dashboard-title">Dashboard</h1>
@@ -46,17 +48,17 @@ function Dashboard() {
         />
         <div className="dashboard-item welcome-item">
           {/* {admin.name} */}
-          <h4>Built by, Petar Kolev</h4>
+          <h1>Built by, Petar Kolev</h1>
           <h2>Welcome back, </h2>
-          <h5>
+          <h3>
             From colors, cards, typography to complex elements, you will find
             the full documentation. Here you can manage everything about your
             business and have to oppurtunity for something great!
-          </h5>
+          </h3>
           <a href="">Read more!</a>
         </div>
         <div className="dashboard-item style-item">
-          <h3>UserManagmentApp</h3>
+          <h1>UserManagmentApp</h1>
         </div>
         <div className="dashboard-item">
           <SalesMonthly />

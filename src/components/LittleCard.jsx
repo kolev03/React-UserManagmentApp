@@ -6,9 +6,9 @@ function LittleCard({ title, number, percentage, icon }) {
     <>
       <div className="dashboard-item little-card">
         <div className="left-side-item">
-          <h4 className="little-card-title">{title}</h4>
-          <h3 className="little-card-number">{number}</h3>
-          <h4 className="little-card-percentage">{percentage}</h4>
+          <h1 className="little-card-title">{title}</h1>
+          <h2 className="little-card-number">{number}</h2>
+          <h3 className="little-card-percentage">{percentage}</h3>
         </div>
         <div className="right-side-item">
           <FontAwesomeIcon

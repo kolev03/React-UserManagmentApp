@@ -1,11 +1,32 @@
 // src/components/SalesChart.jsx
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import * as d3 from "d3";
 
 function SalesChart() {
   const salesData = useSelector((state) => state.sales);
   const d3Container = useRef(null);
+  const [chartWidth, setChartWidth] = useState(getChartWidth());
+
+  // Helper function to determine the chart width based on window size
+  function getChartWidth() {
+    if (window.innerWidth < 400) {
+      return Number(window.innerWidth - 50); // smaller screens
+    } else if (window.innerWidth < 830) {
+      return Number(window.innerWidth - 50); // medium screens
+    } else {
+      return 500; // larger screens
+    }
+  }
+
+  // Update chart width when the window resizes
+  useEffect(() => {
+    const handleResize = () => {
+      setChartWidth(getChartWidth());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (salesData && d3Container.current) {
@@ -14,10 +35,10 @@ function SalesChart() {
 
       // Set dimensions and margins
       const margin = { top: 30, right: 30, bottom: 70, left: 60 },
-        width = 500 - margin.left - margin.right,
+        width = chartWidth - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
-      // Append SVG
+      // Append SVG container
       const svg = d3
         .select(d3Container.current)
         .append("svg")
@@ -37,13 +58,13 @@ function SalesChart() {
         "December",
       ];
 
-      // Separate and sort data by product type
-      const higherData = salesData
+      // Create copies of the arrays and sort them so as not to mutate the state
+      const higherData = [...salesData]
         .filter((d) => d.type === "higher")
         .sort(
           (a, b) => monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month)
         );
-      const lowerData = salesData
+      const lowerData = [...salesData]
         .filter((d) => d.type === "lower")
         .sort(
           (a, b) => monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month)
@@ -56,13 +77,12 @@ function SalesChart() {
         .range([0, width])
         .padding(0.2);
 
-      // Append X axis and remove the bottom line (domain path)
+      // Append X axis and remove unwanted lines/ticks
       const xAxis = svg
         .append("g")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(x));
-      xAxis.select("path").remove(); // Remove axis line
-      // Optionally, remove tick lines:
+      xAxis.select("path").remove();
       xAxis.selectAll("line").remove();
       xAxis
         .selectAll("text")
@@ -76,31 +96,32 @@ function SalesChart() {
       // Generate tick values at intervals of 5000
       const tickValues = d3.range(0, maxSales, 5000);
 
-      // Append Y axis with custom ticks and remove left axis line
+      // Append Y axis with custom ticks and remove the left axis line
       const yAxis = svg.append("g").call(
         d3
           .axisLeft(y)
           .tickValues(tickValues)
-          .tickSize(0) // Remove tick lines
+          .tickSize(0)
           .tickFormat((d) => d)
       );
-      yAxis.select("path").remove(); // Remove the left axis line
+      yAxis.select("path").remove();
 
-      // Line & area generators (using curveCardinal for smooth curves)
+      // Line & area generators using curveCardinal for smooth curves.
+      // We use x(d.month) + x.bandwidth()/2 to center the data points in each band.
       const lineGenerator = d3
         .line()
-        .x((d) => x(d.month))
+        .x((d) => x(d.month) + x.bandwidth() / 2)
         .y((d) => y(d.sales))
         .curve(d3.curveCardinal.tension(0.5));
 
       const areaGenerator = d3
         .area()
-        .x((d) => x(d.month))
+        .x((d) => x(d.month) + x.bandwidth() / 2)
         .y0(y(0))
         .y1((d) => y(d.sales))
         .curve(d3.curveCardinal.tension(0.5));
 
-      // "Higher" area & line (keep same color: #69b3a2)
+      // "Higher" area & line (same color: #13cbd8)
       svg
         .append("path")
         .datum(higherData)
@@ -119,7 +140,7 @@ function SalesChart() {
         .attr("stroke-width", 2)
         .attr("d", lineGenerator);
 
-      // "Lower" area & line (change to dark gray: #333333)
+      // "Lower" area & line (color: #9dfcd1)
       svg
         .append("path")
         .datum(lowerData)
@@ -167,9 +188,15 @@ function SalesChart() {
         .style("font-size", "15px")
         .attr("alignment-baseline", "middle");
     }
-  }, [salesData]);
+  }, [salesData, chartWidth]);
 
-  return <div id="my_dataviz" ref={d3Container}></div>;
+  return (
+    <div
+      id="my_dataviz"
+      ref={d3Container}
+      style={{ width: "100%" }} // ensures the container is responsive
+    ></div>
+  );
 }
 
 export default SalesChart;

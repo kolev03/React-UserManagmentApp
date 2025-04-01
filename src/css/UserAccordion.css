@@ -57,6 +57,30 @@
 }
 
 .Mui-expanded .MuiButtonBase-root {
-  
-    background-color: rgb(37, 222, 235);
+  background-color: rgb(37, 222, 235);
+}
+
+@media only screen and (max-width: 530px) {
+  .accordion-header strong {
+    width: 100px;
+  }
+
+  .accordion-user-active {
+    flex: 1;
+    font-size: 1rem;
+    display: none;
+  }
+
+  .accordion-user-details div p{
+    font-size: 1rem;
+  }
+
+  .accordion-user-buttons button{
+    font-size: 1rem;
+  }
+
+  .accordion-user-details div {
+  margin: 2px;
+  }
+
 }

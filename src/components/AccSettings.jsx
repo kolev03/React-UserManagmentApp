@@ -1,12 +1,21 @@
 import "../css/AccSetting.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { updateAccount } from "../data/slices/admins.Slice";
+import { updateAccount, selectLoggedAdmin } from "../data/slices/admins.Slice";
 
 function AccountSettings() {
-  const admins = useSelector((state) => state.admins);
-  const admin = admins.find((admin) => admin.logged);
   const dispatch = useDispatch();
+
+  const admin = useSelector(selectLoggedAdmin);
+
+  /**
+   * This is a variable, which requires at least one capital letter, one special symbol and one number
+   */
+  const passwordRequirments = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/;
+
+  /**
+   * Making a local varible, where we store the new data until we update it into the database.
+   */
 
   const [accInfo, setAccInfo] = useState({
     name: admin ? admin.name : "",
@@ -14,6 +23,7 @@ function AccountSettings() {
     password: admin ? admin.password : "",
   });
 
+  // Handling the data
   useEffect(() => {
     if (admin) {
       setAccInfo({
@@ -24,14 +34,35 @@ function AccountSettings() {
     }
   }, [admin]);
 
-  
-  /** 
-   * Does is 
-  */
-    
+  // useEffect(() => {
+  //   async function fetchAdminData() {
+  //     try {
+  //       const response = await fetch("../data/slices/admins.Slice");
+  //       const data = await response.json();
+  //       setAccInfo({
+  //         name: data.name,
+  //         email: data.email,
+  //         password: data.password,
+  //       });
+  //     } catch (error) {
+  //       alert("Error fetching admin data:", error);
+  //       setAccInfo({
+  //         name: "ERROR",
+  //         email: "ERROR",
+  //         password: "ERROR",
+  //       });
+  //     }
+  //   }
+  //   fetchAdminData();
+  // }, ["../data/slices/admins.Slice"]);
+
+  /**
+   * Handling the changes to the logged admin. Here, we check if the entered data is correct and should be dispatched.
+   */
+
   const handleSaveChanges = () => {
     if (
-      !/^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/.test(accInfo.password) ||
+      !passwordRequirments.test(accInfo.password) ||
       accInfo.name === "" ||
       accInfo.email === ""
     ) {
@@ -39,6 +70,10 @@ function AccountSettings() {
       return;
     }
     alert("Changes saved!");
+
+    /**
+     * Dispatching the changed to the database
+     */
     dispatch(updateAccount({ ...admin, ...accInfo }));
   };
 

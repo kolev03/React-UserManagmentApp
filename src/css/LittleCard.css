@@ -1,7 +1,7 @@
 .little-card {
-    height: 70px; 
-    width: 18%;
-    gap: 20%;
+  height: 70px;
+  width: 18%;
+  gap: 20%;
 }
 
 .left-side-item {
@@ -14,7 +14,7 @@
 
 .little-card-icon {
   font-size: 30px;
-  background-color: rgb(19, 203, 216);;
+  background-color: rgb(19, 203, 216);
   padding: 10px;
   border-radius: 10%;
   color: white;
@@ -35,4 +35,20 @@
 .little-card-percentage {
   color: rgb(3, 125, 3);
   font-size: 20px;
+}
+
+@media only screen and (max-width: 1204px) {
+  .little-card {
+    width: 38%;
+  }
+}
+
+@media only screen and (max-width: 676px) {
+  .little-card {
+    width: 70%;
+    margin: 10px auto;
+  }
+}
+
+@media only screen and (max-width: 420px) {
 }

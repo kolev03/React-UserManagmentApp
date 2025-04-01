@@ -25,7 +25,7 @@ const admins = createSlice({
       const { id, logged } = action.payload;
       const admin = state.find((admin) => admin.id === id);
       if (admin) {
-        admin.logged = logged; 
+        admin.logged = logged;
       }
     },
     updateAccount: (state, action) => {
@@ -40,5 +40,8 @@ const admins = createSlice({
 });
 
 export const { updateAccount, setAdminLogged } = admins.actions;
+
+export const selectLoggedAdmin = (state) =>
+  state.admins.find((account) => account.logged === true);
 
 export default admins.reducer;
