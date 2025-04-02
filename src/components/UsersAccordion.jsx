@@ -31,6 +31,16 @@ function UserAccordion({ user }) {
   const toggleInput = () => setIsReadOnly(!isReadOnly);
 
   function saveChanges() {
+    if (accData.name === "") {
+      alert("Enter correct name!");
+      return;
+    } else if (accData.email === "") {
+      alert("Enter correct email!");
+      return;
+    } else if (accData.city === "") {
+      alert("Enter correct city!");
+      return;
+    }
     dispatch(updateAccount(accData));
   }
 
@@ -56,7 +66,7 @@ function UserAccordion({ user }) {
             <p>Full Name: </p>
             <input
               type="text"
-              placeholder={user.name}
+              placeholder={accData.name}
               disabled={isReadOnly}
               name="name"
               onChange={(event) =>
@@ -68,7 +78,7 @@ function UserAccordion({ user }) {
             <p>City: </p>{" "}
             <input
               type="text"
-              placeholder={user.city}
+              placeholder={accData.city}
               disabled={isReadOnly}
               name="city"
               onChange={(event) =>
@@ -80,7 +90,7 @@ function UserAccordion({ user }) {
             <p>Email: </p>{" "}
             <input
               type="text"
-              placeholder={user.email}
+              placeholder={accData.email}
               disabled={isReadOnly}
               name="email"
               onChange={(event) =>
@@ -93,7 +103,7 @@ function UserAccordion({ user }) {
             <select
               name=""
               id=""
-              value={user.accountType}
+              value={accData.accountType}
               disabled={isReadOnly}
               onChange={(event) =>
                 setAccData({ ...accData, accountType: event.target.value })

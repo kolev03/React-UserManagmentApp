@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   {
     id: 1,
-    name: "Alice Johnson Gonzales",
-    email: "alice.johnson@example.com",
+    name: "Divna Dobromirova Avramova",
+    email: "divna.prasenceto@example.com",
     password: "Olivia123",
-    city: "New York",
+    city: "Razgrad",
     accountType: "admin",
     lastTimeSeen: "2023-04-10T09:30:00Z",
   },

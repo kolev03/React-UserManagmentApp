@@ -117,6 +117,7 @@ main {
   }
 
   .nav-bar-main-page {
+    background: linear-gradient(to bottom, rgb(158, 238, 244), white);
     width: 100%;
     flex-direction: column;
     padding: 0;
@@ -135,6 +136,10 @@ main {
     width: 100%;
     overflow-y: scroll;
     height: 100%;
+  }
+
+  .dashboard-item:nth-last-child() {
+    padding-left: -20px;
   }
 }
 
