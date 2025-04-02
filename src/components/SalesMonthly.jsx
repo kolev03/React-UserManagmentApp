@@ -18,7 +18,6 @@ function SalesChart() {
       return 500; // larger screens
     }
   }
-
   // Update chart width on window resize
   useEffect(() => {
     const handleResize = () => {

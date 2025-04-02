@@ -11,10 +11,7 @@ function LittleCard({ title, number, percentage, icon }) {
           <h3 className="little-card-percentage">{percentage}</h3>
         </div>
         <div className="right-side-item">
-          <FontAwesomeIcon
-            className="little-card-icon"
-            icon={icon}
-          />
+          <FontAwesomeIcon className="little-card-icon" icon={icon} />
         </div>
       </div>
     </>

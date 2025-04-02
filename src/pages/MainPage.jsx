@@ -11,19 +11,25 @@ import {
   faGear,
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
+import { use } from "react";
 
 function MainPage() {
   const navigate = useNavigate();
   const [section, setSection] = useState(<Dashboard />);
   const [fade, setFade] = useState(true);
+  const [fadeMain, setFadeMain] = useState(true);
   const [activeButton, setActiveButton] = useState(1);
   const active = "main-page-button-active";
 
   const handleChange = (num) => setActiveButton(num);
 
   const handleLogOut = () => {
-    navigate("/");
     alert("Log out Successful!");
+    setFadeMain(false);
+    setTimeout(() => {
+      navigate("/");
+      setFadeMain(true);
+    }, 150);
   };
 
   const handleButtonClick = (num, component) => {
@@ -36,7 +42,7 @@ function MainPage() {
   };
 
   return (
-    <div className="flex">
+    <div className={`flex ${fadeMain ? "fade-in" : "fade-out"}`}>
       <div className="nav-bar-main-page">
         <h3 className="nav-bar-title">UserManagmentApp</h3>
         <hr />

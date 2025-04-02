@@ -115,7 +115,7 @@ function AccountSettings() {
             minlength="12"
           />
         </div>
-        <h5>Note* Password must follow the standard format:</h5>
+        <h4>Note* Password must follow the standard format:</h4>
         <ul>
           <li>Minimum 12 characters</li>
           <li>At least 1 special character</li>

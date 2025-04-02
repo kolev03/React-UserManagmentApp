@@ -1,6 +1,5 @@
 .main-dashboard {
   width: 100%;
-  background-color: rgb(255, 255, 255);
   display: flex;
   flex-wrap: wrap;
   gap: 0;
@@ -12,7 +11,7 @@
   font-size: 2rem;
 }
 .dashboard-item {
-  background-color: rgb(255, 253, 253);
+  background-color: rgb(184, 231, 255);
   height: min-content;
   width: min-content;
   min-width: 200px;

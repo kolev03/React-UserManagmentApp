@@ -13,10 +13,16 @@ import { updateAccount } from "../data/slices/usersSlice";
 function UserAccordion({ user }) {
   const dispatch = useDispatch();
 
+  /**
+   * Taking the first name of the user
+   */
   const firstName = user.name.split(" ")[0];
 
   const [isReadOnly, setIsReadOnly] = useState(true);
 
+  /**
+   * Setting a local object, where we store the data untill it's geting dispatched to the DB.
+   */
   const [accData, setAccData] = useState({
     id: user.id,
     name: user.name,
@@ -27,9 +33,11 @@ function UserAccordion({ user }) {
     lastTimeSeen: user.lastTimeSeen,
   });
 
-  //Edit Mode - ON/OFF
   const toggleInput = () => setIsReadOnly(!isReadOnly);
 
+  /**
+   * First checking if the input fields are empty, if everything is OK, we dispatch to the users slice with renewed data.
+   */
   function saveChanges() {
     if (accData.name === "") {
       alert("Enter correct name!");
@@ -54,8 +62,12 @@ function UserAccordion({ user }) {
       >
         <strong className="accordion-name">{firstName}</strong>
         <span className="accordion-user-type">{user.accountType}</span>
+
         <span className="accordion-user-active">
           Last seen:{" "}
+          {/**
+           * Displaying the last time the user was online. The time is adaptive to the local timezone. also , are being replaced.
+           */}
           {new Date(user.lastTimeSeen).toLocaleString().replace(/[,г]/g, "")}
         </span>
       </AccordionSummary>

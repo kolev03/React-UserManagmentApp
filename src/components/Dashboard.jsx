@@ -3,7 +3,7 @@ import SalesMonthly from "./SalesMonthly";
 import SalesProduct from "./ProductTypeSales.jsx";
 import LittleCard from "./LittleCard";
 import { useSelector } from "react-redux";
-import { selectLoggedAdmin} from "../data/slices/admins.Slice.js"
+import { selectLoggedAdmin } from "../data/slices/admins.Slice.js";
 import businessData from "../data/businessData.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,9 +15,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
-  
+  /**
+   * Taking the logged admin from the admins slice
+   */
   const admin = useSelector(selectLoggedAdmin);
-
   return (
     <>
       <h1 class="dashboard-title">Dashboard</h1>
@@ -47,8 +48,10 @@ function Dashboard() {
           icon={faChartSimple}
         />
         <div className="dashboard-item welcome-item">
-          {/* {admin.name} */}
           <h1>Built by, Petar Kolev</h1>
+          {
+            // {admin.name}
+          }
           <h2>Welcome back, </h2>
           <h3>
             From colors, cards, typography to complex elements, you will find

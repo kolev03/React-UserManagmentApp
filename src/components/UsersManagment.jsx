@@ -9,6 +9,9 @@ function UsersManagment() {
   const [selectedOption, setSelectedOption] = useState("all");
   const [inputValue, setInputValue] = useState("");
 
+  /**
+   * An array of objects, which is filtering the users slice, based on what the user has chosen from the select menu, and from what he has typed in the search bar.
+   */
   const filteredAccounts =
     selectedOption === "all"
       ? accounts.filter((account) => account.name.includes(inputValue))
@@ -31,17 +34,25 @@ function UsersManagment() {
       <h2 className="user-managment-title">Users</h2>
       <div className="search-bar">
         <div className="filter-name">
-          <label>Search by name: </label>
-          <input type="text" onChange={handleNameChange} />
+          <label htmlFor="enter-name-for-search">Search by name: </label>
+          <input
+            id="enter-name-for-search"
+            type="text"
+            onChange={handleNameChange}
+          />
         </div>
         <div className="filter-type">
-          <label>Filter: </label>
+          <label htmlFor="select-filter" style={{ display: "none" }}>
+            Account type
+          </label>
           <select
             id="select-filter"
             value={selectedOption}
             onChange={handleTypeChange}
           >
-            <option value="all">All</option>
+            <option label="" value="all">
+              All
+            </option>
             <option value="admin">Admin</option>
             <option value="client">Client</option>
           </select>
