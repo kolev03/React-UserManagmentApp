@@ -1,3 +1,7 @@
+:root {
+  --main-blue: rgb(41, 50, 176);
+}
+
 .main-dashboard {
   width: 100%;
   display: flex;
@@ -5,13 +9,14 @@
   gap: 0;
 }
 .dashboard-title {
-  margin-top: 45px;
+  margin: 65px 0px 0px 20px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-size: 2rem;
+  color: white;
 }
 .dashboard-item {
-  background-color: rgb(184, 231, 255);
+  background-color: rgb(255, 255, 255);
   height: min-content;
   width: min-content;
   min-width: 200px;
@@ -29,13 +34,13 @@
   height: 300px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  background-color: rgb(19, 203, 216);
+  background-color: var(--main-blue);
   color: white;
 }
 
 .welcome-item h1 {
   font-size: 1rem;
-  color: rgb(219, 219, 219);
+  color: rgb(255, 255, 255);
 }
 
 .welcome-item h2 {
@@ -61,7 +66,7 @@
   align-items: center;
   font-size: 2.5em;
   flex-wrap: nowrap;
-  color: rgb(19, 203, 216);
+  color: rgb(41, 50, 176);
 }
 
 #charts {
@@ -94,7 +99,7 @@
 }
 
 @media only screen and (max-width: 834px) {
-  .dashboard-item{
+  .dashboard-item {
     margin: 20px;
   }
 }

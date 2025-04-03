@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 .accSettingsMain {
-  background: linear-gradient(to left, rgb(158, 238, 244), white);
   height: 100vh;
   width: 100%;
 }
@@ -11,15 +10,17 @@
   font-size: 2rem;
   text-wrap: nowrap;
   width: 60%;
-  padding: 50px;
+  padding: 0px 50px;
   background: linear-gradient();
+  color: white;
 }
 
 .acc-settings-container h2 {
-  margin: -2px 0 40px -43px;
+  margin: 65px 0px 0px -30px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-size: 2rem;
+  color: white;
 }
 
 .acc-settings-container input {
@@ -32,7 +33,7 @@
   border: none;
   padding: 10px;
   border-radius: 10px 15px 10px 15px;
-  background-color: rgb(19, 203, 216);
+  background-color: var(--main-blue);
   cursor: pointer;
   color: white;
   font-weight: 700;
@@ -55,7 +56,7 @@
 }
 
 @media only screen and (max-width: 830px) {
-  .acc-settings-container{
+  .acc-settings-container {
     width: 70%;
     margin: auto;
   }

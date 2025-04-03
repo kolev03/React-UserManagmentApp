@@ -5,7 +5,10 @@
 .login-page-top-container {
   width: 95%;
   margin: auto;
-  background-color: rgb(19, 203, 216);
+  background-image: url("../assets/blue-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 250px;
   border-radius: 20px 70px 20px 70px;
   margin-top: 20px;
@@ -56,7 +59,7 @@
 }
 
 .login-page-form button {
-  background-color: rgb(19, 203, 216);
+  background-image: url("../assets/blue-background.jpg");
   font-size: 1.5rem;
   color: white;
   border: none;

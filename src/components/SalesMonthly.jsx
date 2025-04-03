@@ -110,7 +110,7 @@ function SalesChart() {
         .attr("y", (d) => y(d.sales))
         .attr("width", x.bandwidth())
         .attr("height", (d) => height - y(d.sales))
-        .attr("fill", "rgb(19,203,216)");
+        .attr("fill", "rgb(41, 50, 176)");
     }
   }, [salesData, chartWidth]);
 

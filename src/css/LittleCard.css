@@ -14,7 +14,7 @@
 
 .little-card-icon {
   font-size: 30px;
-  background-color: rgb(19, 203, 216);
+  background-color: var(--main-blue);
   padding: 10px;
   border-radius: 10%;
   color: white;

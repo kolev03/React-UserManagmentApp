@@ -12,10 +12,11 @@ ul {
 }
 
 .user-managment-title {
-  margin-top: 45px;
+  margin: 65px 0px 0px 20px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-size: 2rem;
+  color: white;
 }
 
 .search-bar {

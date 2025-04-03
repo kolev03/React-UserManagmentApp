@@ -13,6 +13,11 @@
   font-size: 1rem;
 }
 
+#panel-header {
+  background-color: white;
+  border-radius: 10px;
+}
+
 .accordion-header strong {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
@@ -45,7 +50,7 @@
 
 .accordion-user-buttons button {
   margin-top: 20px;
-  background-color: rgb(19, 203, 216);
+  background-color: var(--main-blue);
   font-size: 1.25rem;
   color: white;
   border: none;
@@ -71,16 +76,15 @@
     display: none;
   }
 
-  .accordion-user-details div p{
+  .accordion-user-details div p {
     font-size: 1rem;
   }
 
-  .accordion-user-buttons button{
+  .accordion-user-buttons button {
     font-size: 1rem;
   }
 
   .accordion-user-details div {
-  margin: 2px;
+    margin: 2px;
   }
-
 }
