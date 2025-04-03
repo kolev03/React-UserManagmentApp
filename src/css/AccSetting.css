@@ -55,6 +55,11 @@
   margin: 20px 0;
 }
 
+.acc-settings-container h4{
+  font-size: 1.5rem;
+  white-space: wrap;
+}
+
 @media only screen and (max-width: 830px) {
   .acc-settings-container {
     width: 70%;
@@ -63,5 +68,9 @@
   .acc-settings-container h5 {
     white-space: normal; /* Default behavior, wraps text */
     overflow-wrap: break-word;
+  }
+  .acc-settings-container li{
+    margin: 5px auto;
+    width: 400px;
   }
 }

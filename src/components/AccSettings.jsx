@@ -9,14 +9,16 @@ function AccountSettings() {
   const admin = useSelector(selectLoggedAdmin);
 
   /**
-   * This is a variable, which requires at least one capital letter, one special symbol and one number
+   * This is a variable, which requires:
+   * - At least one capital letter
+   * - One special symbol 
+   * - One number
    */
   const passwordRequirments = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/;
 
   /**
    * Making a local varible, where we store the new data until we update it into the database.
    */
-
   const [accInfo, setAccInfo] = useState({
     name: admin ? admin.name : "",
     email: admin ? admin.email : "",
@@ -24,37 +26,37 @@ function AccountSettings() {
   });
 
   // Handling the data
-  useEffect(() => {
-    if (admin) {
-      setAccInfo({
-        name: admin.name,
-        email: admin.email,
-        password: admin.password,
-      });
-    }
-  }, [admin]);
-
   // useEffect(() => {
-  //   async function fetchAdminData() {
-  //     try {
-  //       const response = await fetch("../data/slices/admins.Slice");
-  //       const data = await response.json();
-  //       setAccInfo({
-  //         name: data.name,
-  //         email: data.email,
-  //         password: data.password,
-  //       });
-  //     } catch (error) {
-  //       alert("Error fetching admin data:", error);
-  //       setAccInfo({
-  //         name: "ERROR",
-  //         email: "ERROR",
-  //         password: "ERROR",
-  //       });
-  //     }
+  //   if (admin) {
+  //     setAccInfo({
+  //       name: admin.name,
+  //       email: admin.email,
+  //       password: admin.password,
+  //     });
   //   }
-  //   fetchAdminData();
-  // }, ["../data/slices/admins.Slice"]);
+  // }, [admin]);
+
+  useEffect(() => {
+    async function fetchAdminData() {
+      try {
+        const response = await fetch("../data/slices/admins.Slice");
+        const data = await response.json();
+        setAccInfo({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        });
+      } catch (error) {
+        alert("Error fetching admin data:", error);
+        setAccInfo({
+          name: "ERROR",
+          email: "ERROR",
+          password: "ERROR",
+        });
+      }
+    }
+    fetchAdminData();
+  }, ["../data/slices/admins.Slice"]);
 
   /**
    * Handling the changes to the logged admin. Here, we check if the entered data is correct and should be dispatched.
