@@ -1,11 +1,13 @@
 * {
   margin: auto;
 }
-
+.login-page-whole {
+  height: 100vh;
+}
 .login-page-top-container {
   width: 95%;
   margin: auto;
-  background-image: url("../assets/blue-background.jpg");
+  background-color: rgb(52, 59, 146);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -44,6 +46,8 @@
   font-size: 1.5rem;
   font-weight: 300;
   margin: 0 auto 30px;
+
+  white-space: nowrap;
 }
 
 .login-page-form p {
@@ -59,7 +63,7 @@
 }
 
 .login-page-form button {
-  background-image: url("../assets/blue-background.jpg");
+  background-color: rgb(52, 59, 146);
   font-size: 1.5rem;
   color: white;
   border: none;

@@ -11,7 +11,7 @@ function AccountSettings() {
   /**
    * This is a variable, which requires:
    * - At least one capital letter
-   * - One special symbol 
+   * - One special symbol
    * - One number
    */
   const passwordRequirments = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).+$/;
@@ -26,37 +26,39 @@ function AccountSettings() {
   });
 
   // Handling the data
-  // useEffect(() => {
-  //   if (admin) {
-  //     setAccInfo({
-  //       name: admin.name,
-  //       email: admin.email,
-  //       password: admin.password,
-  //     });
-  //   }
-  // }, [admin]);
-
   useEffect(() => {
-    async function fetchAdminData() {
-      try {
-        const response = await fetch("../data/slices/admins.Slice");
-        const data = await response.json();
-        setAccInfo({
-          name: data.name,
-          email: data.email,
-          password: data.password,
-        });
-      } catch (error) {
-        alert("Error fetching admin data:", error);
-        setAccInfo({
-          name: "ERROR",
-          email: "ERROR",
-          password: "ERROR",
-        });
-      }
+    if (admin) {
+      setAccInfo({
+        name: admin.name,
+        email: admin.email,
+        password: admin.password,
+      });
     }
-    fetchAdminData();
-  }, ["../data/slices/admins.Slice"]);
+  }, [admin]);
+
+  // Tried to fetch, but couldn't because the DB is local
+
+  // useEffect(() => {
+  //   async function fetchAdminData() {
+  //     try {
+  //       const response = await fetch("../data/slices/admins.Slice");
+  //       const data = await response.json();
+  //       setAccInfo({
+  //         name: data.name,
+  //         email: data.email,
+  //         password: data.password,
+  //       });
+  //     } catch (error) {
+  //       alert("Error fetching admin data:", error);
+  //       setAccInfo({
+  //         name: "ERROR",
+  //         email: "ERROR",
+  //         password: "ERROR",
+  //       });
+  //     }
+  //   }
+  //   fetchAdminData();
+  // }, ["../data/slices/admins.Slice"]);
 
   /**
    * Handling the changes to the logged admin. Here, we check if the entered data is correct and should be dispatched.

@@ -125,9 +125,9 @@ function SalesChart() {
       svg
         .append("path")
         .datum(higherData)
-        .attr("fill", "#13cbd8")
+        .attr("fill", "rgb(41, 50, 176)")
         .attr("opacity", 0.6)
-        .attr("stroke", "#13cbd8")
+        .attr("stroke", "rgb(41, 50, 176)")
         .attr("stroke-width", 1)
         .attr("stroke-linejoin", "round")
         .attr("d", areaGenerator);
@@ -136,7 +136,7 @@ function SalesChart() {
         .append("path")
         .datum(higherData)
         .attr("fill", "none")
-        .attr("stroke", "#13cbd8")
+        .attr("stroke", "rgb(41, 50, 176)")
         .attr("stroke-width", 2)
         .attr("d", lineGenerator);
 
@@ -165,7 +165,7 @@ function SalesChart() {
         .attr("cx", 300)
         .attr("cy", 30)
         .attr("r", 6)
-        .style("fill", "#13cbd8");
+        .style("fill", "rgb(41, 50, 176)");
       svg
         .append("text")
         .attr("x", 320)

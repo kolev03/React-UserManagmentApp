@@ -1,9 +1,10 @@
-:root {
-  --main-blue: rgb(41, 50, 176);
-}
 body {
-  background-image: url("../assets/blue-background.jpg");
-  background-size: cover;
+  background: linear-gradient(
+    300deg,
+    rgb(167, 206, 255) 0%,
+    rgb(85, 120, 208) 66%,
+    rgb(38, 49, 204) 100%
+  );
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -66,6 +67,7 @@ body {
 }
 
 main {
+  min-height: 100vh;
   height: min-content;
   width: 87%;
   overflow-y: hidden;
@@ -73,7 +75,7 @@ main {
 }
 
 #main-page-button-active {
-  background-color: rgb(41, 50, 176);
+  background-color: rgb(52, 59, 146);
   transition: 0.3s ease;
   color: white;
   padding: 8px;

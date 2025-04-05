@@ -50,9 +50,8 @@ function Dashboard() {
         <div className="dashboard-item welcome-item">
           <h1>Built by, Petar Kolev</h1>
           {
-            // {admin.name}
           }
-          <h2>Welcome back, </h2>
+          <h2>Welcome back, {admin.name}</h2>
           <h3>
             From colors, cards, typography to complex elements, you will find
             the full documentation. Here you can manage everything about your

@@ -4,8 +4,8 @@ const initialState = [
   {
     id: 1,
     name: "Petar Kolev",
-    email: "latinska@abv.bg",
-    password: "123",
+    email: "admin@123",
+    password: "admin123",
     logged: false,
   },
   {

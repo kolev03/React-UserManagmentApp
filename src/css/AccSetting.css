@@ -11,7 +11,6 @@
   text-wrap: nowrap;
   width: 60%;
   padding: 0px 50px;
-  background: linear-gradient();
   color: white;
 }
 
@@ -72,5 +71,10 @@
   .acc-settings-container li{
     margin: 5px auto;
     width: 400px;
+  }
+
+  .acc-settings-container h2{
+    margin: 40px auto;
+    font-size: 2rem;
   }
 }

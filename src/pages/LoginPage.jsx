@@ -41,12 +41,13 @@ function LoginPage() {
 
   return (
     <>
-      <div className={fade ? "fade-in" : "fade-out"}>
+      <div className={`login-page-whole ${fade ? "fade-in" : "fade-out"}`}>
         <div className="login-page-top-container ">
           <h1 class="navbar-title">User Managment App</h1>
         </div>
         <form className="login-page-form" action="">
           <h2>Please, login in:</h2>
+          <h2>Login info: admin@123, admin123</h2>
           <p>Insert email:</p>
           <input type="text" placeholder="Email" onChange={handleEmailInput} />
           <p>Insert password:</p>
